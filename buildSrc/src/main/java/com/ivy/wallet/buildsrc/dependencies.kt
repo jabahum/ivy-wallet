@@ -30,7 +30,7 @@ object Libs {
 
         //App
         const val applicationId = "com.ivy.wallet"
-        const val minSdk = 28
+        const val minSdk = 27
         const val targetSdk = 30
     }
 
