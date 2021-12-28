@@ -87,7 +87,6 @@ import javax.inject.Inject
 class IvyActivity : AppCompatActivity() {
 
     companion object {
-        const val SUPPORT_EMAIL = "iliyan.germanov971@gmail.com"
         fun getIntent(context: Context): Intent = Intent(context, IvyActivity::class.java)
 
         fun addTransactionStart(context: Context, type: TransactionType): Intent =
@@ -177,7 +176,7 @@ class IvyActivity : AppCompatActivity() {
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestProfile()
-                .requestIdToken("364763737033-t1d2qe7s0s8597k7anu3sb2nq79ot5tp.apps.googleusercontent.com")
+                .requestIdToken(Constants.REQUEST_TOKEN)
                 .build()
             val googleSignInClient = GoogleSignIn.getClient(this, gso)
             googleSignInContract.launch(googleSignInClient)
@@ -441,7 +440,7 @@ class IvyActivity : AppCompatActivity() {
         val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:") // only email apps should handle this
 
-            putExtra(Intent.EXTRA_EMAIL, arrayOf(SUPPORT_EMAIL))
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(Constants.SUPPORT_EMAIL))
             putExtra(
                 Intent.EXTRA_SUBJECT, "Ivy Wallet Support Request #" + caseNumber +
                         "0" + BuildConfig.VERSION_CODE
@@ -454,7 +453,7 @@ class IvyActivity : AppCompatActivity() {
 
         } catch (e: Exception) {
             e.printStackTrace()
-            Toast.makeText(this, "Email: $SUPPORT_EMAIL", Toast.LENGTH_LONG).show()
+            Timber.e("Email Error - ${e.message}")
         }
     }
 

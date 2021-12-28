@@ -3,6 +3,10 @@ package com.ivy.wallet
 object Constants {
     const val ENABLE_PAYWALL_ON_DEBUG = true
 
+    const val SUPPORT_EMAIL = "iliyan.germanov971@gmail.com"
+
+    const val REQUEST_TOKEN= "364763737033-t1d2qe7s0s8597k7anu3sb2nq79ot5tp.apps.googleusercontent.com"
+
     const val FREE_ACCOUNTS = 3
     const val FREE_CATEGORIES = 12
     const val FREE_BUDGETS = 2
